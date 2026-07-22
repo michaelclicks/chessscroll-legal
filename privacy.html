@@ -32,8 +32,9 @@
       <strong>The short version:</strong> ChessScroll has no accounts and no sign-in. Which
       apps you seal and how you spend your screen time stay on your device — Apple's Screen
       Time framework enforces that by design, and we could not read them even if we wanted to.
-      Puzzles work fully offline. The only third party involved is RevenueCat, which manages
-      your membership.
+      Puzzles work fully offline. Two third parties are involved: RevenueCat manages your
+      membership, and PostHog receives anonymous usage statistics that are never linked to
+      your identity.
     </div>
 
     <h2>1. Information we handle</h2>
@@ -52,6 +53,14 @@
       handled by Apple. We use RevenueCat to manage membership status. RevenueCat receives a
       randomized app user identifier and purchase receipt information so the app knows whether
       your membership is active. We never see your payment details.</p>
+    <p><strong>Usage analytics.</strong> We use PostHog to understand how the app is used so
+      we can improve it: events such as "a puzzle was solved," "the paywall was viewed," or
+      "onboarding was completed," together with basic device information (model, iOS version,
+      app version) and recordings of how screens in ChessScroll itself are used. This data is
+      tied to a random identifier, not to you — there is no account, so there is nothing to
+      connect it to your identity. It never includes which apps you sealed (those tokens are
+      unreadable to us by Apple's design), anything from the Screen Time frameworks, or
+      anything from outside the ChessScroll app.</p>
     <p><strong>Diagnostics.</strong> Apple may provide us with aggregated, anonymized crash and
       usage statistics through App Store Connect if you have enabled sharing in your device
       settings. This data does not identify you.</p>
@@ -59,19 +68,21 @@
     <h2>2. What we do not do</h2>
     <ul>
       <li>No accounts, no email addresses, no personal profiles.</li>
-      <li>No analytics or tracking SDKs, no advertising, no selling of data.</li>
+      <li>No advertising, no cross-app tracking, no selling of data.</li>
       <li>No reading of your browsing, messages, or activity inside sealed apps.</li>
-      <li>No server of ours ever receives your chess activity or screen-time data.</li>
+      <li>No server ever receives your sealed-app choices or screen-time data.</li>
     </ul>
 
     <h2>3. Third-party services</h2>
-    <p>ChessScroll relies on two providers to function. Their handling of data is governed by
-      their own privacy policies:</p>
+    <p>ChessScroll relies on three providers to function. Their handling of data is governed
+      by their own privacy policies:</p>
     <ul>
       <li><strong>Apple (App Store, Screen Time / Family Controls)</strong> —
         <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></li>
       <li><strong>RevenueCat</strong> (membership management) —
         <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></li>
+      <li><strong>PostHog</strong> (anonymous usage analytics, hosted in the EU) —
+        <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></li>
     </ul>
 
     <h2>4. Data storage and retention</h2>
